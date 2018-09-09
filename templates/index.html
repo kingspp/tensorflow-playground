@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>TF Play</title>
+    <script src="/static/js/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/datatables.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/fileinput.css"/>
+    <!--highlight the code-->
+    <link type="text/css" rel="stylesheet" href="/static/css/styles-new/default.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/magnific-popup.css"/>
+    <!-- Custom CSS -->
+    <link type="text/css" rel="stylesheet" href="/static/font-awesome/css/font-awesome.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/w3.css">
+    <link href='/static/css/google-fonts.css' rel='stylesheet' type='text/css'>
+    <link href='/static/css/google-avro-font.css' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="/static/css/general.css">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/pnotify.custom.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/custom.css" rel="stylesheet">
+    <link href="/static/css/perfect-scrollbar.min.css" rel="stylesheet">
+</head>
+
+<body id="home">
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"></div>
+</div>
+
+<!-- FullScreen -->
+<div class="intro-header">
+    <div class="col-xs-12 text-center abcen1">
+        <h1 class="h1_home wow fadeIn" data-wow-delay="1.9s">TfPlay</h1>
+        <h3 class="h3_home wow fadeIn" data-wow-delay="2.1s">A Tensorflow Playground</h3>
+        <ul class="list-inline intro-social-buttons">
+            <li><a href="#debugger" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="2.3s"><span
+                    class="network-name">IDE</span></a>
+            </li>
+            <li id="download"><a href="#usage" class="btn  btn-lg mybutton_standard wow swing wow fadeIn"
+                                 data-wow-delay="2.5s"><span class="network-name">Usage</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-xs-12 text-center abcen wow fadeIn">
+        <div class="button_down ">
+            <a class="imgcircle wow bounceInUp" data-wow-delay="2.9s" data-wow-duration="1.5s" href="#debugger"> <img
+                    class="img_scroll"
+                    src="/static/img/icon/circle.png"
+                    alt=""> </a>
+        </div>
+    </div>
+</div>
+
+<!-- NavBar-->
+<nav class="navbar-default" role="navigation" style="top: 20px;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">TfPlay <span id="tfplay_version"
+                                                              style="font-size: small; font-family: Impact; letter-spacing: 0"></span></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="menuItem"><a href="#usage">Usage</a></li>
+                <li class="menuItem"><a href="#debugger">TF Playground</a></li>
+                <li class="menuItem"><a href="#file_system">File System</a></li>
+                <li class="menuItem dropdown" style="">
+                    <a class="dropdown-toggle" type="button" data-toggle="dropdown">Hi <span id="user_name"></span>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<section id="usage" class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 pull-right wow fadeInRightBig">
+                <img class="img-responsive " src="/static/img/coding.png" alt="">
+            </div>
+
+            <div class="col-sm-6 wow fadeInLeftBig" data-animation-delay="200">
+                <h3 class="section-heading">Tensorflow Play Usage</h3>
+                <div class="sub-title lead3">TfPlay is an <u><i>advanced TF Box</i></u><br> Usage:
+                </div>
+                <p class="lead">
+                    1. Upload Data (CSV) / Script (Python) file using Play IDE and wait for the Success
+                    Notification</br>
+                    2. If the file is a python script it will be opened in the editor for execution </br>
+                    3. Head over to the File System section for more details regarding your data / script files </br>
+                    4. Data files can be accessed directly without any path reference. Ex:
+                    open('sample.csv').readlines() </br>
+                    5. Once uploading process is completed, the script can be opened in the editor by a simple click on
+                    it in file system section. </br>
+                    6. Execute button is used to execute the opened script </br>
+                    7. Refresh button is used to refresh the editor and the output status </br>
+                    8. View button is used to launch tensorboard to view computation graph. Please select your
+                    respective graph in the run section </br>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="debugger" class="content-section-b">
+    <div class="container">
+        <div class="row">
+            <h1 class="section-heading text-center text-capitalize">Play IDE</h1>
+            <iframe name="hidden-iframe" style="display: none;"></iframe>
+            <form id="file_upload_form" action="upload" method="post"
+                  class="upload_form e-margin active center"
+                  target="hidden-iframe" style="clear: left;" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">Select File</label>
+                        <input id="input-7" name="file" multiple type="file" class="file file-loading"
+                               data-allowed-file-extensions='["py", "csv", "model"]'>
+                    </div>
+                    <div class="col-md-3">
+                        <div id="play_button_area" style="display: inline">
+                            <button type="button" title="Execute Script" id="run_btn" onclick="run_thread()"
+                                    class="btn mybutton_green"
+                                    style="margin-top:40px;">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <button type="button" title="Save File" id="save_file" class="btn mybutton_solar"
+                                style="margin-top:40px; margin-left: 10px;"><i
+                                class="fa fa-save" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" title="Refresh Editor" id="reload_btn" class="btn mybutton_cyano"
+                                style="margin-top:40px; margin-left: 10px;"><i
+                                class="fa fa-refresh" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" title="Launch Tensorboard" id="launch_board" class="btn mybutton_orange"
+                                style="margin-top:40px; margin-left: 10px;"><i
+                                class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+
+        <div class="row" id="card_stack">
+            <div class="w3-card-4 col-md-7"
+                 style="width: 600px; border-radius: 5px; margin-top: 15px;/* width:92%; *//* max-width:300px; */">
+                <div class="code_overflow">
+                    <pre>
+                        <div id="editor">print("Hello World. An simple DL IDE:) ") </div>
+                    </pre>
+                </div>
+            </div>
+
+            <div class="col-md-5" id ="result_div" style="padding-left: 30px; overflow: scroll; height: 572px;">
+                <h4><b>Result:</b></h4>
+                <p><b>Status:</b> <span id="p_status"> -- </span></p>
+                <div id="final_result"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="file_system" class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <h1 class="section-heading text-center text-capitalize">File System</h1>
+        </div>
+        <div class="col-md-12 wow fadeInLeftBig" data-animation-delay="200">
+            <div class="row">
+                <div class="col-md-5 file_system_style" style="background: silver">
+                    <h3 class="section-heading">Data Files</h3>
+                    <div class="var_tab">
+                        <table id="data_files_table" class="display nowrap var_tab" cellspacing="0" width="100%"
+                               style="float: left">
+                            <thead>
+                            <tr>
+                                <th><b>File Name</b></th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-5 file_system_style" style="background: lightseagreen">
+                    <h3 class="section-heading">Python Scripts</h3>
+                    <div class="var_tab">
+                        <table id="python_files_table" class="display nowrap var_tab" cellspacing="0" width="100%"
+                               style="float: left">
+                            <thead>
+                            <tr>
+                                <th><b>File Name</b></th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 file_system_style" style="background: lightcoral">
+                    <h3 class="section-heading">Trained Models</h3>
+                    <div class="var_tab">
+                        <table id="model_files_table" class="display nowrap var_tab" cellspacing="0" width="100%"
+                               style="float: left">
+                            <thead>
+                            <tr>
+                                <th><b>File Name</b></th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="display: none">
+    <form id="save_frm" action="" method="post">
+        <div class="form-group">
+            <label for="save_file_input">Filename</label>
+            <input type="text" id="save_file_input" name="save_file" required="required"/>
+        </div>
+        <button type="submit" class="btn btn-default" onclick="notice_update()">Submit</button>
+    </form>
+</section>
+
+
+<script src="/static/js/jquery.datatables.min.js"></script>
+<script src="/static/js/httputil.js"></script>
+<script src="/static/js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/static/js/socketio.min.js"></script>
+<script src="/static/js/custom-file-input.js"></script>
+<script src="/static/js/jquery.magnific-popup.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/fileinput.js"></script>
+<script src="/static/js/script.js"></script>
+<script type="text/javascript" src="/static/js/jquery.corner.js"></script>
+<script src="/static/js/wow.min.js"></script>
+<script src="/static/js/classie.js"></script>
+<script src="/static/js/pnotify.custom.min.js"></script>
+<script src="/static/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="/static/js/main.js"></script>
+<script src="/static/js/jquery.magnific-popup.js"></script>
+<script src="/static/js/modernizr-2.8.3.min.js"></script>  <!-- Modernizr /-->
+<script src="/static/js/stickUp.min.js"></script>
+
+
+
+<script type="text/javascript">
+    //initiating jQuery
+    jQuery(function ($) {
+        $(document).ready(function () {
+            //enabling stickUp on the '.navbar-wrapper' class
+            $('.navbar-default').stickUp();
+        });
+    });
+
+</script>
+</body>
+
+</html>

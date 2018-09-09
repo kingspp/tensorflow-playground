@@ -1,0 +1,9 @@
+flask
+jsonpickle
+flask-socketio
+eventlet
+flask-login
+flask_cors
+cython
+pandas
+numpy

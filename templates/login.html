@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TFPlay Login</title>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel='stylesheet' href='/static/css/roboto.css'>
+    <link rel='stylesheet' href='/static/font-awesome/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/pnotify.custom.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container" style="padding-top: 100px">
+    <div class="card"></div>
+    <div class="card">
+        <h1 class="title">Login</h1>
+        <form action="" method="post">
+            <div class="input-container">
+                <input type="text" id="Username" name=username required="required"/>
+                <label for="Username">Username</label>
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <input type="password" id="Password" name=password required="required"/>
+                <label for="Password">Password</label>
+                <div class="bar"></div>
+            </div>
+            <input type="hidden" id="ltype1" name="ltype" value="login"/>
+            <div class="button-container">
+                <button><span>Go</span></button>
+            </div>
+        </form>
+    </div>
+    <div class="card alt">
+        <div class="toggle"></div>
+        <h1 class="title">Register
+            <div class="close"></div>
+        </h1>
+        <form id="register_form" action="" method="post">
+            <div class="input-container">
+                <input type="text" id="username1" name="username" required="required"/>
+                <label for="username1">Username</label>
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password1" name="password" required="required"/>
+                <label for="password1">Password</label>
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <input type="password" id="confirm_password" required="required"/>
+                <label for="confirm_password">Repeat Password</label>
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <input type="password" id="key" name="key" required="required"/>
+                <label for="key">KEY</label>
+                <div class="bar"></div>
+            </div>
+            <input type="hidden" id="ltype2" name="ltype" value="register"/>
+            <div class="button-container">
+                <button id="next_btn" type="submit"><span>Next</span></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src='/static/js/jquery.min.js'></script>
+<script src="/static/js/login.js"></script>
+<script src="/static/js/pnotify.custom.min.js"></script>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<script>
+
+    if ("{{message}}" != "Please log in to access this page.")
+        if ("{{message}}" == "Registration Successful")
+            calert("success","Success","{{message}}");
+        else
+            calert("error","Error","{{message}}");
+
+</script>
+{% endfor %}
+{% endif %}
+{% endwith %}
+</body>
+</html>

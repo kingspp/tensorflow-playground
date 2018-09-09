@@ -1,0 +1,292 @@
+/*!
+ * Start Bootstrap - 3 Col Portfolio (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+/*#6095C8*/
+
+.shadow{
+    -moz-box-shadow: 0 0 3px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.75);
+    box-shadow: 0 0 3px rgba(0,0,0,0.75);
+}
+
+body {
+    padding-top: 48px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    /*background-color: whitesmoke;*/
+}
+
+.navbar-margin{
+    margin-bottom: 0px; !important
+}
+
+.highlight {
+    background-color: #FFFF88;
+}
+
+.panel-fullscreen {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+.hideClass{
+    display:none;
+}
+.fullscreen{
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+ }
+
+.top{
+    width:100%;
+    float:left;
+    min-height: 114px;
+}
+
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 20px;
+    width: auto;
+    max-width: 60%;
+    margin: 20px auto;
+}
+
+.c-margin{
+    padding : 10px;
+}
+.d-margin{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.e-margin{
+    margin-left: 20px;
+}
+
+.border-add{
+    border: 2px solid #000;
+}
+
+.hljs-line-numbers {
+    text-align: right;
+    border-right: 1px solid #ccc;
+    color: #999;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.bottom{
+    clear: left;
+    float: left;
+    min-height: 114px;
+    height: 700px;
+    width: 100%;
+    background: #fff;
+    display: inline-block;
+    overflow: auto;
+    border-radius: 8px;
+}
+
+
+.bottom_m_version{
+    clear: left;
+    float: left;
+    min-height: 114px;
+    height: 600px;
+    width: 100%;
+    background: #fff;
+    display: inline-block;
+    overflow: auto;
+    border-radius: 8px;
+}
+
+
+.file-upload {
+  position: relative;
+  overflow: hidden;
+  color: #f1e5e6;
+  background-color: #d3394c;
+  display: inline-block;
+  margin: 10px; }
+
+.file-upload input.file-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0); }
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.center {
+    margin:auto;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #f1e5e6;
+    background-color: #d3394c;
+    display: inline-block;
+}
+
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+	pointer-events: none;
+}
+
+.js .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+
+pre {
+      counter-reset: lines;
+    }
+    pre .line {
+      counter-increment: lines;
+    }
+    pre .line::before {
+      content: counter(lines); text-align: right;
+      display: inline-block; width: 2em;
+      padding-right: 0.5em; margin-right: 0.5em;
+      color: black; border-right: solid 1px;
+    }
+
+/*Text Selector*/
+
+::selection{
+		background: silver;
+		color: White;
+	}
+	::-moz-selection{
+		background: silver;
+		color: White;
+	}
+h1{ margin: 0; }
+h2{ margin: 0; padding: 0; color: #666; font-size: 14px;}
+#textDescription{
+		line-height:1.9em; font-size:16px; margin:10px; border:1px #333 solid; padding:5px; width: 450px;
+	}
+	.selectedText{
+		position: relative;
+		background-color: silver;	color:#fff;	line-height: 1.2em;
+	}
+	.popDiv{
+		background: maroon; color: white; padding: 6px; width: 180px; height: 80px;
+		position: absolute; top: 18px; left: 0;
+		border-radius: 4px; box-shadow: 2px 3px 4px #444;
+
+		-webkit-animation: slideIn .5s;
+		animation: slideIn .5s;
+	}
+
+	@-webkit-keyframes slideIn{
+		from{
+			top: 8px; opacity: 0; height: 40px;
+		}
+		to{
+			top: 18px; opacity: 1; height: 80px;
+		}
+	}
+
+	@-moz-keyframes slideIn{
+		from{
+			top: 8px; opacity: 0; height: 40px;
+		}
+		to{
+			top: 18px; opacity: 1; height: 80px;
+		}
+	}
+
+	@keyframes slideIn{
+		from{
+			top: 8px; opacity: 0; height: 40px;
+		}
+		to{
+			top: 18px; opacity: 1; height: 80px;
+		}
+	}
+
+
+
+
+/*Cards*/
+#card_stack{
+    #padding-top: 40px;
+    margin-top: 50px;
+    position: relative;
+}
+
+
+
+.child_card{
+    width: 270px;
+    border-radius: 5px;
+    /* width:92%; *//* max-width:300px; */
+    position: absolute;
+    background: white;
+    left:0;
+    top:0;
+}
+
+.remove_card{
+    height: 20px;
+    width:20px;
+    margin-top: -20px;
+    margin-left: 20px;
+}
+
+/*Overflow Code*/
+
+.code_overflow{
+    overflow: scroll;
+    max-height: 300px;
+    min-height: 300px;
+    max-width: 400px;
+    min-width: 350px;
+}
+
+
