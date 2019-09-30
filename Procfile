@@ -1,1 +1,1 @@
-web: gunicorn app:tfplay.py
+web: gunicorn app:app
