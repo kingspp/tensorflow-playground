@@ -10,10 +10,11 @@ from flask_login import current_user, login_user, login_required, logout_user, L
 from tfplay.User import User
 import os
 import json
+from tfplay import MODULE_STORE
 
-app = rzt_flask_app
-users = rzt_users
-users_dict = rzt_users_dict
+app = MODULE_STORE.flask_app
+users = MODULE_STORE.users
+users_dict = MODULE_STORE.users_dict
 
 login_manager = LoginManager()
 login_manager.init_app(app)

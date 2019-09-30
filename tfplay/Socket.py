@@ -11,8 +11,8 @@ from tfplay.Utils import generate_json_status
 from flask_login import current_user, login_required
 from tfplay import MODULE_STORE
 
-socketio = MODULE_STORE.rzt_socketio
-sockets = MODULE_STORE.rzt_sockets
+socketio = MODULE_STORE.socketio
+sockets = MODULE_STORE.sockets
 
 
 class Socket:

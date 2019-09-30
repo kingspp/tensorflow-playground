@@ -14,7 +14,7 @@ from os import listdir
 from os.path import isfile, join
 from tfplay import MODULE_STORE
 
-app = MODULE_STORE.rzt_flask_app
+app = MODULE_STORE.flask_app
 
 
 # Route that will process the file upload

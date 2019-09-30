@@ -4,7 +4,7 @@ import re
 import os
 from tfplay import MODULE_STORE
 
-app = MODULE_STORE.rzt_flask_app
+app = MODULE_STORE.flask_app
 
 
 def generate_json_status(status, data):

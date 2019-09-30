@@ -11,7 +11,7 @@ from subprocess import PIPE
 from eventlet.green.subprocess import Popen
 from tfplay import MODULE_STORE
 
-app = MODULE_STORE.rzt_flask_app
+app = MODULE_STORE.flask_app
 
 
 class KThread(threading.Thread):

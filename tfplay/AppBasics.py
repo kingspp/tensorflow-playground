@@ -11,11 +11,12 @@ from flask import Response, redirect, flash, render_template, url_for, request
 from flask_login import current_user, login_required
 import os
 import json
+from tfplay import MODULE_STORE
 
-app = rzt_flask_app
-users = rzt_users
-socketio = rzt_socketio
-sockets = rzt_sockets
+app = MODULE_STORE.flask_app
+users = MODULE_STORE.users
+socketio = MODULE_STORE.socketio
+sockets = MODULE_STORE.sockets
 
 
 def tfstatus():
