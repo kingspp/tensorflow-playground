@@ -74,4 +74,6 @@ if __name__ == '__main__':
 
     # os.system('nohup tensorboard --logdir=' + app.config['TB_DIR'] + ' --port ' + app.config[
         # 'TB_PORT'] + ' --host ' + app.config['TB_HOST'] + ' &')
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.debug = True
+    app.run(host='0.0.0.0', port=port)
