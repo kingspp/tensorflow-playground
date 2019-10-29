@@ -22,7 +22,7 @@ from tfplay import MODULE_STORE
 
 
 '''
-{"admin": "admin@123", "vinay": "vinay", "nandu": "nandu", "prathyush": "prathyush"}
+{"admin": "admin@123", "user":"user@123"}
 '''
 
 # PyLogger Initialization
