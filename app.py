@@ -64,7 +64,7 @@ if __name__ == '__main__':
         # app.config.from_pyfile(args['r'])
     # app.config.from_pyfile('/Users/prathyushsp/Git/tensorflow-playground/instance/dev.py')
     # print(app.config)
-    users_dict = {"admin":"admin@123", "nandu":"nandu"}#json.loads(open(app.config['USER_JSON']).read())
+    users_dict = {"admin":"admin@123", "user":"user@123"}#json.loads(open(app.config['USER_JSON']).read())
     MODULE_STORE.users_dict = users_dict
     users = [User(id).manager(item[0], item[1]) for id, item in enumerate(users_dict.items())]
     MODULE_STORE.users = users
