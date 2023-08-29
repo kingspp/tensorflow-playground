@@ -10,6 +10,12 @@ cd tensorflow-playground
 pip3 install -r requirements.txt
 ```
 
+```
+# Heroku Deployment
+
+heroku stack:set heroku-20 -a tfplay
+```
+
 ## Usage
 ###Command-line Usage:
 
