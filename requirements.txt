@@ -1,7 +1,7 @@
 #flask
 jsonpickle==1.1
 flask-socketio==4.2.1
-eventlet==0.25.1
+eventlet==0.33.3
 flask-login==0.4.1
 flask_cors==3.0.8
 cython==0.29.13
