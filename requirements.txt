@@ -7,7 +7,7 @@ flask_cors==3.0.8
 cython==0.29.13
 pandas==0.25.1
 numpy==1.17.2
-tensorflow==1.15.4
+tensorflow==2.11.1
 gunicorn
 munch==2.4.0
 click==8.0.4
